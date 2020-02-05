@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bundle.css" />
+</head>
+
+<body>
+  <form>
+    <select id="mode">
+      <option value="">Default</option>
+      <option value="desktop outlined">Desktop Outlined</option>
+
+    </select>
+
+    <fieldset>
+
+      <div class="mdc-date-picker mdc-date-picker--outlined">
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
+          <input id="demo-calendar" class="mdc-text-field__input mdc-calendar-input" type="text" tabindex="0"
+            pattern="^\d{1,2}\/\d{1,2}\/(\d{2}|\d{4})$" value="11/17/2019" />
+          <i role="button" class="material-icons mdc-text-field__icon" tabindex="0">calendar_today</i>
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label class="mdc-calendar-input-label mdc-floating-label mdc-floating-label--float-above"
+                for="demo-calendar">Select
+                date</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+        <div class="mdc-calendar-dropdown">
+          <div class="mdc-calendar-header">
+            <div class="mdc-calendar-label">Select date</div>
+            <div class="mdc-calendar-value">Mon, Nov 17</div>
+            <button class="mdc-icon-button mdc-calendar-edit">
+              <i class="material-icons mdc-icon-button__icon">create</i>
+            </button>
+          </div>
+          <div class="mdc-calendar-body">
+            <div class="mdc-calendar-nav">
+              <div class="mdc-select mdc-calendar-month">
+                <div class="mdc-select__anchor">
+                  <i class="mdc-select__dropdown-icon"></i>
+                  <div id="demo-calendar-selected-month" class="mdc-select__selected-text" role="button"
+                    aria-haspopup="true" aria-labelledby="demo-calendar-label demo-calendar-selected-month">November
+                    2019</div>
+                  <span id="demo-calendar-label" class="mdc-floating-label mdc-floating-label--float-above">Select a
+                    month and year</span>
+                </div>
+                <div class="mdc-select__menu mdc-menu mdc-menu-surface" role="listbox">
+                  <ul class="mdc-list">
+                    <li class="mdc-list-item mdc-list-item--selected" data-value="2019-11" role="option">November 2019
+                    </li>
+                    <li class="mdc-list-item" data-value="2019-12" role="option">December 2019</li>
+                    <li class="mdc-list-item" data-value="2020-01" role="option">January 2020</li>
+                    <li class="mdc-list-item" data-value="2020-02" role="option">February 2020</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mdc-calendar-nav-buttons">
+                <button class="mdc-icon-button material-icons mdc-calendar-prev">
+                  chevron_left
+                </button>
+                <button class="mdc-icon-button material-icons mdc-calendar-next">
+                  chevron_right
+                </button>
+              </div>
+            </div>
+            <div class="mdc-calendar">
+              <span class="mdc-calendar-weekday"><span>M</span></span>
+              <span class="mdc-calendar-weekday"><span>T</span></span>
+              <span class="mdc-calendar-weekday"><span>W</span></span>
+              <span class="mdc-calendar-weekday"><span>T</span></span>
+              <span class="mdc-calendar-weekday"><span>F</span></span>
+              <span class="mdc-calendar-weekday"><span>S</span></span>
+              <span class="mdc-calendar-weekday"><span>S</span></span>
+              <button class="mdc-button mdc-calendar-day mdc-calendar-day-off" data-date="2019-10-28">28</button>
+              <button class="mdc-button mdc-calendar-day mdc-calendar-day-off" data-date="2019-10-29">29</button>
+              <button class="mdc-button mdc-calendar-day mdc-calendar-day-off" data-date="2019-10-30">30</button>
+              <button class="mdc-button mdc-calendar-day mdc-calendar-day-off" data-date="2019-10-31">31</button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-01"><span>1</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-02"><span>2</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-03"><span>3</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-04"><span>4</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-05"><span>5</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-06"><span>6</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-07"><span>7</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-08"><span>8</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-09"><span>9</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-10"><span>10</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-11"><span>11</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-12"><span>12</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-13"><span>13</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-14"><span>14</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-15"><span>15</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-16"><span>16</span></button>
+              <button class="mdc-button mdc-calendar-day mdc-calendar-day-selected"
+                data-date="2019-11-17"><span>17</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-18"><span>18</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-19"><span>19</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-20"><span>20</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-21"><span>21</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-22"><span>22</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-23"><span>23</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-24"><span>24</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-25"><span>25</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-26"><span>26</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-27"><span>27</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-28"><span>28</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-29"><span>29</span></button>
+              <button class="mdc-button mdc-calendar-day" data-date="2019-11-30"><span>30</span></button>
+              <button class="mdc-button mdc-calendar-day mdc-calendar-day-off" data-date="2019-12-01">1</button>
+            </div>
+            <div class="mdc-calendar-buttons text-right">
+              <button class="mdc-button mdc-calendar-button">Cancel</button>
+              <button class="mdc-button mdc-calendar-button">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+  </form>
+  </div>
+  <script src="bundle.js" async></script>
+</body>
+
+</html>

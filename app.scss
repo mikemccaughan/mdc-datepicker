@@ -1,0 +1,252 @@
+@import '@material/button/mdc-button';
+@import '@material/icon-button/mdc-icon-button';
+@import '@material/textfield/mdc-text-field';
+@import '@material/textfield/icon/mdc-text-field-icon';
+@import '@material/line-ripple/mdc-line-ripple';
+@import '@material/floating-label/mdc-floating-label';
+@import '@material/elevation/mdc-elevation';
+@import '@material/list/mdc-list';
+@import '@material/menu-surface/mdc-menu-surface';
+@import '@material/menu/mdc-menu';
+@import '@material/select/mdc-select';
+
+html {
+  font-family: Roboto, 'Open Sans', sans-serif;
+}
+fieldset {
+  padding: 1vw 1vh;
+  max-width: 50vw;
+  margin: 0 auto;
+}
+
+.mdc-date-picker {
+  position: relative;
+}
+.mdc-calendar-dropdown {
+  @include mdc-elevation(2);
+  display: flex;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 0px solid lightgray;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  height: 0;
+  transition: height 250ms ease-in, border-width 100ms ease-in;
+}
+.mdc-calendar-dropdown.show {
+  height: 292px;
+  border-width: 1px;
+}
+.mdc-calendar-header {
+  background-color: #6200ee;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+.mdc-calendar-label {
+  font-variant: small-caps;
+  text-transform: lowercase;
+  font-stretch: expanded;
+  letter-spacing: 0.25ch;
+  line-height: 1.4;
+}
+.mdc-calendar-edit {
+  &.mdc-icon-button:not(:disabled) {
+    background-color: transparent;
+    border-style: none;
+    color: white;
+  }
+  position: absolute;
+}
+.mdc-calendar-nav {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.mdc-calendar-month.mdc-select:not(.mdc-select--disabled) {
+  background-color: transparent;
+}
+.mdc-calendar-nav-buttons {
+  display: flex;
+}
+.mdc-calendar-nav-buttons .mdc-icon-button {
+  background-color: transparent;
+  border-style: none;
+}
+.mdc-calendar {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+.mdc-calendar-day {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.mdc-button.mdc-calendar-day:not(:disabled) {
+  color: #000;
+}
+.mdc-button.mdc-calendar-day-off:not(:disabled) {
+  color: #999;
+}
+.mdc-calendar-day span {
+  display: flex;
+  border: 0 none transparent;
+  border-radius: 50%;
+  justify-content: center;
+  flex-flow: column;
+}
+.mdc-calendar-day-selected span {
+  background-color: #6200ee;
+  background-color: var(--mdc-theme-primary, #6200ee);
+  color: #fff;
+}
+.mdc-calendar-today span {
+  border: 1px solid #000;
+}
+.mdc-calendar-buttons {
+  text-align: right;
+}
+.mdc-date-picker .mdc-calendar-month .mdc-select__selected-text {
+  padding: 0;
+  height: 24px;
+  border-bottom-style: none;
+}
+.mdc-date-picker
+  .mdc-calendar-month
+  .mdc-floating-label.mdc-floating-label--float-above {
+  display: none;
+}
+/* Sizing */
+@media (max-width: 400px) {
+  .mdc-calendar-dropdown {
+    max-width: 328px;
+    max-height: 512px;
+  }
+  .mdc-calendar-header {
+    min-height: 120px;
+    padding: 12px 24px;
+    position: relative;
+  }
+  .mdc-calendar-label {
+    font-size: 12px;
+  }
+  .mdc-calendar-value {
+    font-size: 32px;
+  }
+  .mdc-calendar-edit {
+    height: 24px;
+    width: 24px;
+    min-width: 24px;
+    font-size: 24px;
+    bottom: 24px;
+    right: 24px;
+  }
+  .mdc-calendar-nav {
+    padding: 16px 8px 12px 24px;
+  }
+  .mdc-calendar-month.mdc-select:not(.mdc-select--disabled) {
+    height: 24px;
+  }
+  select.mdc-select__native-control {
+    font-size: 1rem;
+    line-height: 1;
+    height: 24px;
+    padding-top: 0;
+    padding-left: 8px;
+  }
+  .mdc-calendar-month .mdc-select__dropdown-icon {
+    bottom: 0px;
+    right: 4px;
+  }
+  .mdc-calendar-nav-buttons .mdc-icon-button {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    padding: 0;
+  }
+  .mdc-calendar-nav-buttons .mdc-icon-button:first-child {
+    margin-right: 24px;
+  }
+  .mdc-calendar {
+    padding: 0 12px;
+    grid-template-columns: [sun] 40px [mon] 40px [tue] 40px [wed] 40px [thu] 40px [fri] 40px [sat] 40px;
+    column-gap: 4px;
+    grid-template-rows: [weekdays] 40px [week1] 40px [week2] 40px [week3] 40px [week4] 40px [week5] 40px [week6] 40px;
+  }
+  .mdc-calendar-day {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+  .mdc-calendar-day span {
+    width: 36px;
+    height: 36px;
+  }
+  .mdc-calendar-buttons {
+    padding: 0 24px 24px 0;
+  }
+}
+@media (min-width: 1200px) {
+  .mdc-calendar-dropdown {
+    max-width: 328px;
+    max-height: 392px;
+  }
+  .mdc-calendar-header {
+    display: none;
+  }
+  .mdc-calendar-nav {
+    padding: 16px 8px 0 24px;
+  }
+  .mdc-calendar-month.mdc-select:not(.mdc-select--disabled) {
+    height: 24px;
+  }
+  select.mdc-select__native-control {
+    font-size: 1rem;
+    line-height: 1;
+    height: 24px;
+    padding-top: 0;
+    padding-left: 8px;
+  }
+  .mdc-calendar-month .mdc-select__dropdown-icon {
+    bottom: 4px;
+    right: 4px;
+  }
+  .mdc-calendar-nav-buttons .mdc-icon-button {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    padding: 0;
+  }
+  .mdc-calendar-nav-buttons .mdc-icon-button:first-child {
+    margin-right: 24px;
+  }
+  .mdc-calendar {
+    padding: 0 16px;
+    grid-template-columns: [sun] 32px [mon] 32px [tue] 32px [wed] 32px [thu] 32px [fri] 32px [sat] 32px;
+    column-gap: 4px;
+    grid-template-rows: [weekdays] 32px [week1] 32px [week2] 32px [week3] 32px [week4] 32px [week5] 32px [week6] 32px;
+  }
+  .mdc-calendar-day {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+  }
+  .mdc-calendar-day span {
+    width: 28px;
+    height: 28px;
+  }
+  .mdc-calendar-buttons {
+    padding: 0 24px 24px 0;
+  }
+  .mdc-calendar-buttons button {
+    display: none;
+  }
+}

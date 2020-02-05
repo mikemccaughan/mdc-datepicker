@@ -1,0 +1,442 @@
+/*
+Format for month calendar data will be as follows:
+
+{
+    "value": "2020-01",           // Always year-month
+    "display": "January 2020",    // Optional locale-specific display (otherwise taken from Intl.DateTimeFormat)
+    "prev": "2019-12",            // precalculated previous and
+    "next": "2020-02",            // next months,
+    "weekStartDay": "iso",        // Day week starts on 0 = Sunday, 6 = Saturday, "iso" = use ISO 8601 rules (1 = Monthday)
+    "weeks": [                    // array of precalculated dates
+        {
+            "week": 1,            // week number in weekType system of week numbering
+            "weekType": "iso" ,   // "iso" = use ISO 8601 week; otherwise a function that takes a Date and returns a number
+            "dates": [
+                {
+                    "dateAsString": "2019-12-30",     // the date, as an ISO-formatted string without time information; readonly
+                    "date": new Date(2019, 11, 30),   // the date, as a JavaScript Date, with the time set to midnight local; readonly
+                    "day": "Monday",                  // Optional name of day this date falls on; mostly for formatting purposes
+                    "otherMonth": true,               // true if the date is in a month other than the month being reported; otherwise, false; 
+                                                    // can also be a function that takes a Date and returns a Boolean
+                    "otherYear": true,                // true if the date is in a year other than the year of the month being reported; otherwise, false; 
+                                                    // can also be a function that takes a Date and returns a Boolean
+                    "disabled": false,                // true if the date should be unselectable; otherwise, false; can also be a function that takes a 
+                                                    // Date and returns a Boolean
+                    "classes": ["mdc-button", "mdc-calendar-day", "mdc-calendar-day-off"],
+                                                    // an array of strings represented CSS classes to add to the date; prepopulated with "mdc-button", 
+                                                    // "mdc-calendar-day", and "mdc-calendar-day-off" if either otherMonth or otherYear is true
+                                                    // can also be a function which takes an array of strings and returns an array of strings.
+                },
+                {
+                    "dateAsString": "2019-12-31",
+                    "date": new Date(2019, 11, 31),
+                    "day": "Tuesday",
+                    "otherMonth": true,
+                    "otherYear": true,
+                    "disabled": false,
+                    "classes": ["mdc-button", "mdc-calendar-day", "mdc-calendar-day-off"],
+                },
+                {
+                    "dateAsString": "2020-01-01",
+                    "date": new Date(2019, 0, 1),
+                    "day": "Wednesday",
+                    "otherMonth": false,
+                    "otherYear": false,
+                    "disabled": false,
+                    "classes": ["mdc-button", "mdc-calendar-day"],
+                },
+                {
+                    "dateAsString": "2020-01-02",
+                    "date": new Date(2019, 0, 2),
+                    "day": "Thursday",
+                    "otherMonth": false,
+                    "otherYear": false,
+                    "disabled": false,
+                    "classes": ["mdc-button", "mdc-calendar-day"],
+                },
+                {
+                    "dateAsString": "2020-01-03",
+                    "date": new Date(2019, 0, 3),
+                    "day": "Friday",
+                    "otherMonth": false,
+                    "otherYear": false,
+                    "disabled": false,
+                    "classes": ["mdc-button", "mdc-calendar-day"],
+                },
+                {
+                    "dateAsString": "2020-01-04",
+                    "date": new Date(2019, 0, 4),
+                    "day": "Saturday",
+                    "otherMonth": false,
+                    "otherYear": false,
+                    "disabled": false,
+                    "classes": ["mdc-button", "mdc-calendar-day"],
+                },
+                {
+                    "dateAsString": "2020-01-05",
+                    "date": new Date(2019, 0, 5),
+                    "day": "Sunday",
+                    "otherMonth": false,
+                    "otherYear": false,
+                    "disabled": false,
+                    "classes": ["mdc-button", "mdc-calendar-day"],
+                }
+            ]
+        }
+    ],
+}
+*/
+{
+  "value": "2020-01",
+  "display": "January 2020",
+  "prev": "2019-12",
+  "next": "2020-02",
+  "weekStartDay": "iso",
+  "weeks": [
+    {
+      "week": 1,
+      "weekType": "iso",
+      "dates": [
+        {
+          "dateAsString": "2019-12-30",
+          "date": new Date(2019, 11, 30),
+          "day": "Monday",
+          "otherMonth": true,
+          "otherYear": true,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day", "mdc-calendar-day-off"]
+        },
+        {
+          "dateAsString": "2019-12-31",
+          "date": new Date(2019, 11, 31),
+          "day": "Tuesday",
+          "otherMonth": true,
+          "otherYear": true,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day", "mdc-calendar-day-off"]
+        },
+        {
+          "dateAsString": "2020-01-01",
+          "date": new Date(2020, 0, 1),
+          "day": "Wednesday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-02",
+          "date": new Date(2020, 0, 2),
+          "day": "Thursday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-03",
+          "date": new Date(2020, 0, 3),
+          "day": "Friday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-04",
+          "date": new Date(2020, 0, 4),
+          "day": "Saturday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-05",
+          "date": new Date(2020, 0, 5),
+          "day": "Sunday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "weekType": "iso",
+      "dates": [
+        {
+          "dateAsString": "2020-01-06",
+          "date": new Date(2020, 0, 6),
+          "day": "Monday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-07",
+          "date": new Date(2020, 0, 7),
+          "day": "Tuesday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-08",
+          "date": new Date(2020, 0, 8),
+          "day": "Wednesday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-09",
+          "date": new Date(2020, 0, 9),
+          "day": "Thursday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-10",
+          "date": new Date(2020, 0, 10),
+          "day": "Friday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-11",
+          "date": new Date(2020, 0, 11),
+          "day": "Saturday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-12",
+          "date": new Date(2020, 0, 12),
+          "day": "Sunday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "weekType": "iso",
+      "dates": [
+        {
+          "dateAsString": "2020-01-13",
+          "date": new Date(2020, 0, 13),
+          "day": "Monday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-14",
+          "date": new Date(2020, 0, 14),
+          "day": "Tuesday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-15",
+          "date": new Date(2020, 0, 15),
+          "day": "Wednesday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-16",
+          "date": new Date(2020, 0, 16),
+          "day": "Thursday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-17",
+          "date": new Date(2020, 0, 17),
+          "day": "Friday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-18",
+          "date": new Date(2020, 0, 18),
+          "day": "Saturday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-19",
+          "date": new Date(2020, 0, 19),
+          "day": "Sunday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "weekType": "iso",
+      "dates": [
+        {
+          "dateAsString": "2020-01-20",
+          "date": new Date(2020, 0, 20),
+          "day": "Monday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-21",
+          "date": new Date(2020, 0, 21),
+          "day": "Tuesday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-22",
+          "date": new Date(2020, 0, 22),
+          "day": "Wednesday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-23",
+          "date": new Date(2020, 0, 23),
+          "day": "Thursday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-24",
+          "date": new Date(2020, 0, 24),
+          "day": "Friday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-25",
+          "date": new Date(2020, 0, 25),
+          "day": "Saturday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-26",
+          "date": new Date(2020, 0, 26),
+          "day": "Sunday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "weekType": "iso",
+      "dates": [
+        {
+          "dateAsString": "2020-01-27",
+          "date": new Date(2020, 0, 27),
+          "day": "Monday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-28",
+          "date": new Date(2020, 0, 28),
+          "day": "Tuesday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-29",
+          "date": new Date(2020, 0, 29),
+          "day": "Wednesday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-30",
+          "date": new Date(2020, 0, 30),
+          "day": "Thursday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-01-31",
+          "date": new Date(2020, 0, 31),
+          "day": "Friday",
+          "otherMonth": false,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day"]
+        },
+        {
+          "dateAsString": "2020-02-01",
+          "date": new Date(2020, 1, 1),
+          "day": "Saturday",
+          "otherMonth": true,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day", "mdc-calendar-day-off"]
+        },
+        {
+          "dateAsString": "2020-02-02",
+          "date": new Date(2020, 1, 2),
+          "day": "Sunday",
+          "otherMonth": true,
+          "otherYear": false,
+          "disabled": false,
+          "classes": ["mdc-button", "mdc-calendar-day", "mdc-calendar-day-off"]
+        }
+      ]
+    }
+  ]
+}
