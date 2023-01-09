@@ -37,6 +37,6 @@
     "@material/ripple": "^3.2.0",
     "@material/select": "^3.2.0",
     "@material/textfield": "^3.2.0",
-    "luxon": "^1.22.0"
+    "luxon": "^1.28.1"
   }
 }
